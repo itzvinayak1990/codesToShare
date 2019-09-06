@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Document</title>
+    <style>
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        td,
+        th {
+            border: 1px solid grey;
+            text-align: left;
+            padding: 8px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #dddddd;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="main">
+        <form>
+            <fieldset>
+                <legend>Sum UP Two Numbers</legend>
+                <div class="form-group">
+                    <label>Quantity____:</label>
+                    <input type="number" class="form-control prc one">
+                </div><br>
+                <div class="form-group">
+                    <label>ItemPrice___:</label>
+                    <input type="number" class="form-control prc two">
+                </div><br>
+                <div class="form-group">
+                    <label>Total_______:</label>
+                    <input id="result"></output>
+                </div>
+            </fieldset>
+        </form>
+        <br>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"></script>
+        <button class="btn btn-success" id="pdf" style="font-size:30px;background-color:orange;border-radius:10px"
+            onclick="demoFromHTML()">PDF</button>
+        <br><br>
+        <div id="customers">
+            <table id="tab_customers" class="table table-striped">
+                <tr>
+                    <th>Quantity</th>
+                    <th>Price</th>
+                    <th>Total</th>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>2</td>
+                    <td>3</td>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>2</td>
+                    <td>3</td>
+                </tr>
+            </table>
+        </div>
+
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+        //code to get the sum of values in the text box
+        $('.form-group').on('input', '.prc', function () {
+            var totalSum = 0;
+            $('.prc').each(function () {
+                inputVal = $(this).val();
+                quantity = $('.one').val();
+                price = $('.two').val();
+                if (quantity == "") {
+                    totalSum = "enter valid quantity"
+                }
+                if (price == "") {
+                    totalSum = "enter valid price"
+                }
+                if (quantity != "" && price != "") {
+                    totalSum += parseFloat(inputVal);
+                }
+                // if ($.isNumeric(inputVal)) {
+                //     totalSum += parseFloat(inputVal);
+                // }
+
+            })
+            $('#result').val(totalSum)
+        })
+
+        //code to get pdf from html
+        demoFromHTML = () => {
+            var doc = new jsPDF();
+            doc.fromHTML($('#main').get(0), 20, 20, {
+                'width': 500
+            });
+            doc.save('Test.pdf');
+        }
+    </script>
+</body>
+
+</html>
