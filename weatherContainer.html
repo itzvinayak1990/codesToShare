@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <h2>this is weather container</h2>
+</head>
+
+<body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <div class="weather-container">
+        <img class="icon" alt="" value="fjdfjdkjfkd">
+        <p class="weather"></p>
+        <p class="temp"></p>
+    </div>
+    <script>
+        $.getJSON("https://samples.openweathermap.org/data/2.5/weather?zip=94040,us&appid=b6907d289e10d714a6e88b30761fae22", function (data) {
+            console.log(data);
+            var icn = "http://maps.openweathermap.org/img/w/" + data.weather[0].icon + ".png";
+            var temp = Math.floor(data.main.temp);
+            var weather = data.weather[0].main;
+            $('.icon').attr('src', icn);
+            $('.temp').append(temp);
+            $('.weather').append(weather);
+        })    
+    </script>
+
+    <script>
+        $.getJSON("https://samples.openweathermap.org/data/2.5/forecast?id=524901&appid=b1b15e88fa797225412429c1c50c122a1", function (vdata) {
+            console.log(vdata);
+        })
+
+
+    </script>
+</body>
+
+</html>

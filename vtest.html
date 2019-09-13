@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Document</title>
+    <script src=https://cdnjs.cloudflare.com/ajax/libs/iCheck/1.0.2/icheck.min.js> </script> 
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <ul>
+        <li> <label> <input name="amt2" type="checkbox"><b>Feature1</b></label>
+        </li>
+        <li>
+            <label> <input name="amt2" type="checkbox">Feature12</label>
+        </li>
+        <li>
+            <input name="amt2" type="checkbox" checked="">Feature3
+        </li>
+    </ul>
+
+    <ul class="listview">
+        <li> <label>
+                <input name="amt22" type="radio" checked="">22
+            </label>
+        </li>
+        <li> <label>
+                <input name="amt22" type="radio">33
+            </label>
+        </li>
+        <li> <label>
+                <input name="amt22" type="radio">44
+            </label>
+        </li>
+        <li> <label>
+                <input name="amt22" type="radio">55
+            </label>
+        </li>
+    </ul>
+<fieldset>
+    <legend>This is Legend</legend>
+    <label> <input name="amt23" type="radio" checked="">$10</label>
+    <label> <input name="amt23" type="radio">$102</label>
+    <label> <input name="amt23" type="radio">$101</label>
+    <label> <input name="amt23" type="radio">$103</label>
+    </fieldset>
+
+
+    <script>
+        jQuery('input').iCheck({
+            checkboxClass: 'icheckbox_square-blue',
+            radioClass: 'iradio_square-blue',
+            increaseArea: '20%' // optional
+        });</script>
+
+        <h2 id="vb">hi this is h2</h2>
+        <form action="/action_page.php">
+            First name:<br>
+            <input type="text" name="firstname" value="Mickey">
+            <br>
+            Last name:<br>
+            <input type="text" name="lastname" value="Mouse">
+            <br><br>
+            <input type="submit" value="Submit" onclick="changeName()">
+            <input type="reset">
+            </form> 
+
+            <script>
+                changeName=()=>{
+
+                }
+            
+            </script>
+</body>
+
+</html>
